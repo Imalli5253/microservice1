@@ -1,7 +1,8 @@
-FROM node:9-slim
+FROM node:13-slim
 WORKDIR /app
 COPY package.json .
 RUN apt-get update || : && apt-get install python -y
 RUN npm install
+COPY . .
 EXPOSE 4000
 CMD ["npm","start"]
